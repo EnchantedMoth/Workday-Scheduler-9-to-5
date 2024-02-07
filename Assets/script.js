@@ -30,8 +30,10 @@ $(document).ready(function () {
         currentDiv.className = "row time-block future"
       }
       var textArea = localStorage.getItem("hour-" + hours[i])
+      console.log(textArea)
       if(textArea !== null)
-      currentDiv.children[1].textcontent = textArea
+      currentDiv.children[1].append(textArea)
+      
     }
     }
     
