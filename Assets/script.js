@@ -16,7 +16,6 @@ console.log(typeof(currentHour))
 
 
 $(document).ready(function () {
-  var saveBtn = document.getElementsByClassName("saveBtn")
 
   function check(){
     for (let i = 0; i < hours.length; i++) {
@@ -30,11 +29,15 @@ $(document).ready(function () {
       } else {
         currentDiv.className = "row time-block future"
       }
-      
-      }
+      var textArea = localStorage.getItem("hour-" + hours[i])
+      if(textArea !== null)
+      currentDiv.children[1].textcontent = textArea
+    }
     }
     
     check ()
+
+    var saveBtn = $(".saveBtn")
 
     function saveTextArea() {
       var textArea = $(this).siblings('textarea');
@@ -70,3 +73,5 @@ $(document).ready(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+
